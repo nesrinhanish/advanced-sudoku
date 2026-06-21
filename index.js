@@ -54,12 +54,12 @@ const easy = [
   }
 
   function startTimer(){
-    if (id("time-1").checked) timeRemaining = 180;
+    if (id("time-1").checked) timeRemaining = 180 ;
     else if (id("time-2").checked) timeRemaining = 300;
     else timeRemaining = 600;
     id("timer").textContent = timeConvertion(timeRemaining);
     timer = setInterval(function () {
-        timeRemaining --;
+        timeRemaining -- ;
         //when theres no more time remaining end the game
         if(timeRemaining == 0) endGame ();
         id("timer").textContent = timeConvertion(timeRemaining);
@@ -67,10 +67,10 @@ const easy = [
   }
 
   function timeConvertion(){
-    let minutes = Math.floor(time/60);
+    let minutes = Math.floor(timer/60);
     if (minutes < 10) minutes = "0" + minutes;
-    let seconds = time % 60;
-    if (second < 10) seconds = "0" +seconds;
+    let seconds = timer % 60;
+    if (seconds < 10) seconds = "0" + seconds;
     return minutes + ":" + seconds;
   }
 
@@ -106,7 +106,7 @@ const easy = [
 
   function clearPrevious (){
     //accessing tiles
-    let tiles =qsa(".tile");
+    let tiles = qsa(".tile");
     //removing tiles
     for (let i=0; i < tiles.length; i++){
         tiles[i].remove();
