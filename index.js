@@ -29,8 +29,8 @@ const easy = [
   function startGame(){
     // choosing board difficulty
     let board;
-    if (id("diff-1".checked)) board = easy[0];
-    else if (id("diff-2".checked)) board = medium[0];
+    if (id("diff-1").checked) board = easy[0];
+    else if (id("diff-2").checked) board = medium[0];
     else board = hard[0];
 
     //Lives to 3 and enabling selecting numbers and tiles
@@ -43,10 +43,10 @@ const easy = [
     //starting timer
     startTimer();
     //setting the theme based on input
-    if (id("theme-1").checked) {
-        qs("body").classList.remove("dark");
-    } else {
+    if (id("theme-2").checked) {
         qs("body").classList.add("dark");
+    } else {
+        qs("body").classList.remove("dark");
     }
     //number container setup
     id("number-container").classList.remove("hidden");
@@ -80,6 +80,7 @@ const easy = [
     // let used to increment tile ids
     let idCount= 0
     // creating the 81 tiles
+    let boardPage = id("board");
     for (let i=0; i < 81; i++) {
         let tile = document.createElement("p");
         if (board[i] != "-") {
@@ -99,6 +100,7 @@ const easy = [
 
         //finally im actually adding the tiles
         id("board").appendChild(tile);
+        boardPage.append(tile);
     }
   }
 
