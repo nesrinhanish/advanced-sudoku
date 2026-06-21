@@ -2,6 +2,10 @@
     display: none;
 }
 
+footer.dark {
+    background-color: #a6e6f4;
+    color: #111184;
+}
 .dark {
     background-color: #111184;
     color: #a6e6f4;

@@ -48,6 +48,11 @@ const easy = [
     } else {
         qs("body").classList.remove("dark");
     }
+    if (id("theme-2").checked) {
+        qs("footer").classList.add("dark");
+    } else {
+        qs("footer").classList.remove("dark");
+    }
     //number container setup
     id("number-container").classList.remove("hidden");
 
