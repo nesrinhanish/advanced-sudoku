@@ -3,17 +3,17 @@
 <h2> An interactive sudoku website that allows users to play the classic 9x9 puzzle with multiple features including: 
 different difficulties, different times, a light/dark mode. </h2>
 
-<h3><b> Dark mode: </b> </h3>
+<h3><b> Dark Mode Interface: </b> </h3>
 <img width="1470" height="768" alt="Screenshot 2026-06-23 at 10 26 19 PM" src="https://github.com/user-attachments/assets/6cff5a3f-787d-4ad0-b616-12a04faec641" />
 <hr>
-<h3> <b> Light Mode: </b> </h3>
+<h3> <b> Light Mode Interface: </b> </h3>
 <img width="1470" height="760" alt="Screenshot 2026-06-23 at 10 26 03 PM" src="https://github.com/user-attachments/assets/eaafbb5d-c2d5-4096-a5ee-d96e7fbee9ea" />
 <hr>
-<h3><b> When you first load up the website (before clicking "Create New Game"): </b></h3>
+<h3><b> First Interface (before clicking "Create New Game"): </b></h3>
 <img width="1470" height="760" alt="Screenshot 2026-06-23 at 10 25 55 PM" src="https://github.com/user-attachments/assets/a8b679da-24d0-4529-9930-0a6495ee99de" />
 
 <h2> Motivations: </h2>
-<p> I've been interested in soduko for a while now so I wanted to learn the basics of how it's built using HTML, CSS, and JavaScript. Currently it has only three boards that were
+<p> I've been interested in sudoku for a while now so I wanted to learn the basics of how it's built using HTML, CSS, and JavaScript. Currently it has only three boards that were
   manually added, but hopefully in the future I can continue to improve it until it can be able to generate its own boards  </p>
 
 <h2> Tech Stack: </h2>
