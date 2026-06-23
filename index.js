@@ -159,6 +159,10 @@ function updateMove () {
             // deselecting tiles 
             selectedTile.classList.remove("selected");
             selectedTile = null; 
+            //checking if the entire board is correct 
+            if (checkDone()) {
+                endGame();
+            }
             // if the number doesnt match soltuion 
         } else {
             //disable selecting new number  for 1 second
@@ -186,6 +190,14 @@ function updateMove () {
         }
     }
 }
+function checkDone() {
+    let tiles = qsa(".tile");
+    for (let i=0; i < tiles.length;i++) {
+        if (tiles[i].textContent === " ") return false;
+    }
+    return true;
+}
+
 function endGame (){
     //disable moves and stop timer
     disableSelect = true;
