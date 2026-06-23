@@ -25,6 +25,29 @@ const easy = [
   window.onload = function(){
     //start game when button is clicked
     id("start-btn").addEventListener("click",startGame);
+    //event listener for each number in the num container
+    for (let i=0; i < id("number-container").children.length; i++) {
+        id("number-container").children[i].addEventListener("click", function() {
+            //if selecting it enabled (not disabled)
+            if (!disableSelect) {
+                //if number is already selected
+                if (this.classlist.contains("selected")) {
+                    //remove the selection
+                    this.classList.remove("selected");
+                    selectedNum = null;
+                } else {
+                    //deselecting all other numbers 
+                    for (let i = 0; i < 9; i++) {
+                        id("number-container").children[i].classList.remove("selected");
+                    }
+                    // select and update the selectedNum variable
+                    this.classList.add("selected");
+                    selectedNum= this;
+                    updateMove();
+                }
+            }
+        });
+    }
   }
 
   function startGame(){
