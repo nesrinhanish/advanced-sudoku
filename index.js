@@ -20,6 +20,7 @@ const easy = [
   var selectedNum;
   var selectedTile;
   var disableSelect;
+  var time;
 
   window.onload = function(){
     //start game when button is clicked
@@ -59,14 +60,14 @@ const easy = [
   }
 
   function startTimer(){
-    if (id("time-1").checked) timeRemaining = 180;
-    else if (id("time-2").checked) timeRemaining= 300;
-    else timeRemaining = 600;
-    id("timer").textContent = timeConvertion(timeRemaining);
+    if (id("time-1").checked) time = 180;
+    else if (id("time-2").checked) time = 300;
+    else time = 600;
+    id("timer").textContent = timeConvertion(time);
     timer = setInterval(function(){
-        timeRemaining -- ;
-        if(timeRemaining == 0) endGame();
-        id("timer").textContent = timeConvertion(timeRemaining);
+        time -- ;
+        if(time == 0) endGame();
+        id("timer").textContent = timeConvertion(time);
     }, 1000)
     
   }
