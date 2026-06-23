@@ -192,10 +192,15 @@ function updateMove () {
 }
 function checkDone() {
     let tiles = qsa(".tile");
-    for (let i=0; i < tiles.length;i++) {
-        if (tiles[i].textContent === " ") return false;
+    for (let i = 0; i < tiles.length; i++) {
+        // \s clears tabs, regular spaces, and hidden non-breaking spaces
+        let cleanContent = tiles[i].textContent.replace(/\s/g, "");
+        
+        if (cleanContent === "" || cleanContent === "-") {
+            return false; // Found an empty tile, keep playing!
+        }
     }
-    return true;
+    return true; // Everything is full, win the game!
 }
 
 function endGame (){
@@ -216,8 +221,10 @@ function checkCorrect (tile) {
     else if (id("diff-2").checked) solution = medium[1];
     else solution = hard[1];
     //  if the tile's number is equal to the solution number 
-    if (solution.charAt(tile.id) === tile.textContent) return true;
-    else return false;
+    if (solution && solution.charAt(tile.id) === tile.textContent.trim()) return true;
+    else {
+        return false;
+    }
 }
 
   function clearPrevious (){
