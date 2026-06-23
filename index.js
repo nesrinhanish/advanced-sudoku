@@ -192,7 +192,17 @@ function updateMove () {
         }
     }
 }
-
+function endGame (){
+    //disable moves and stop timer
+    disableSelect = true;
+    clearTimeout(timer);
+    //display win or loss message
+    if (lives === 0 || time === 0 ) {
+        id("lives").textContent = "You Lost!"
+    } else {
+        id("lives").textContent ="You Won!"
+    }
+}
 function checkCorrect (tile) {
     //set the solution based on difficulty selected
     let solution;
