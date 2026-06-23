@@ -31,3 +31,9 @@ different difficulties, different times, a light/dark mode. </h2>
   <li> If the timer hits 00:00 or if the lives reach 0 then the game ends and it displays "You Lost!".  </li>
   <li> If the player is able to complete the board without the time or lives running out then it displays "You Won!". </li>
 </ol>
+
+<h2> Ai & Tutorial disclosure: </h2>
+<ul>
+  <li> Followed a youtube tutorial to learn the foundation of making the board using HTML and CSS. As for JavaScript a lot of things they had done didn't work for me, so I changed it to my liking.   </li>
+  <li> Ai wasn't used except in the checkDone and checkCorrect functions. </li>
+</ul>
