@@ -149,6 +149,61 @@ const easy = [
     }
   }
 
+function updateMove () {
+    //if a tile AND number are both selected
+    if (selectedTile && selectedNum) {
+        // set the tile to the correct number
+        selectedTile.textContent = selectedNum.textContent;
+        // if the number matched the number in solution key 
+        if (checkCorrect(selectedTile)) {
+            // deselecting tiles 
+            selectedTile.classList.remove("selected");
+            // might remove this one because i want them to be able to just select 
+            // the number once and use it multiple times
+            selectedNum.classList.remove("selected");
+            selectedNum = null;
+            selectedTile = null; 
+            // if the number doesnt match soltuion 
+        } else {
+            //disable selecting new number  for 1 second
+            disableSelect = true;
+            // make tile turn red
+            selectedTile.classList.add("incorrect");
+            setTimeout (function() {
+            // subtract live by 1 
+            lives --;
+            // if lives finish end game
+            if (lives == 0) {
+                endGame ();
+            } else {
+            // if lives arent zero, update lives text
+            id("lives").textContent = "Lives Remaining: " + lives;
+            disableSelect = false;
+            }
+            //restoring the tile color and remove selected tile and number 
+            selectedTile.classList.remove("incorrect");
+            selectedTile.classList.remove("selected");
+            selectedNum.classList.remove("selected");
+            selectedTile.textContent = " ";
+            selectedTile = null;
+            selectedNum = null;
+
+            }, 1000);
+        }
+    }
+}
+
+function checkCorrect (tile) {
+    //set the solution based on difficulty selected
+    let solution;
+    if (id("diff-1").checked) solution = easy[1];
+    else if (id("diff-2").checked) solution = medium[1];
+    else solution = hard[1];
+    //  if the tile's number is equal to the solution number 
+    if (solution.charAt(tile.id) === tile.textContent) return true;
+    else return false;
+}
+
   function clearPrevious (){
     //accessing tiles
     let tiles = qsa(".tile");
