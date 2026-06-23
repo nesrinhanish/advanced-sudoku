@@ -31,7 +31,7 @@ const easy = [
             //if selecting it enabled (not disabled)
             if (!disableSelect) {
                 //if number is already selected
-                if (this.classlist.contains("selected")) {
+                if (this.classList.contains("selected")) {
                     //remove the selection
                     this.classList.remove("selected");
                     selectedNum = null;
@@ -158,10 +158,6 @@ function updateMove () {
         if (checkCorrect(selectedTile)) {
             // deselecting tiles 
             selectedTile.classList.remove("selected");
-            // might remove this one because i want them to be able to just select 
-            // the number once and use it multiple times
-            selectedNum.classList.remove("selected");
-            selectedNum = null;
             selectedTile = null; 
             // if the number doesnt match soltuion 
         } else {
@@ -183,10 +179,8 @@ function updateMove () {
             //restoring the tile color and remove selected tile and number 
             selectedTile.classList.remove("incorrect");
             selectedTile.classList.remove("selected");
-            selectedNum.classList.remove("selected");
             selectedTile.textContent = " ";
             selectedTile = null;
-            selectedNum = null;
 
             }, 1000);
         }
