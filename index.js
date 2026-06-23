@@ -112,9 +112,25 @@ const easy = [
     let boardPage = id("board");
     for (let i=0; i < 81; i++) {
         let tile = document.createElement("p");
-        if (board[i] != "-") {
-            tile.textContent = board[i];
+        if (board.charAt(i) != "-") {
+            tile.textContent = board.charAt(i);
         } else {
+            //add event listener to tile
+            tile.addEventListener("click", function() {
+                if (!disableSelect) {
+                    if (tile.classList.contains("selected")) {
+                        tile.classList.remove("selected");
+                        selectedTile = null;
+                    } else {
+                        for (let i = 0; i < 81; i++) {
+                            qsa(".tile")[i].classList.remove("selected");
+                        }
+                        tile.classList.add("selected");
+                        selectedTile = tile;
+                        updateMove();
+                    }
+                }
+            });
         }
         tile.id = idCount;
         idCount ++;
